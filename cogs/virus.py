@@ -470,15 +470,14 @@ class Virus(commands.Cog):
 
         infected_ret = set()
         healers_ret = set()
-        for channel_id in (GENERAL_ID):
-            channel = guild.get_channel(channel_id)
-            authors = {
-                m.author
-                async for m in channel.history(limit=500)
-                if not m.author.bot and isinstance(m.author, discord.Member)
-            }
-            infected_ret.update(self.get_unique(new_infected, authors, infected | healers | healers_ret | infected_ret))
-            healers_ret.update(self.get_unique(new_healers, authors, infected | healers | healers_ret | infected_ret))
+        channel = guild.get_channel(GENERAL_ID)
+        authors = {
+            m.author
+            async for m in channel.history(limit=500)
+            if not m.author.bot and isinstance(m.author, discord.Member)
+        }
+        infected_ret.update(self.get_unique(new_infected, authors, infected | healers | healers_ret | infected_ret))
+        healers_ret.update(self.get_unique(new_healers, authors, infected | healers | healers_ret | infected_ret))
 
         to_send = []
 
