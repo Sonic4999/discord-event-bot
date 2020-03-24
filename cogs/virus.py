@@ -464,7 +464,7 @@ class Virus(commands.Cog):
         """Manages the virus"""
         pass
 
-    async def new_virus_day(self, guild, infected=None, healers=None, new_infected=5, new_healers=2):
+    async def new_virus_day(self, guild, infected=None, healers=None, new_infected=4, new_healers=1):
         infected = infected or set()
         healers = healers or set()
 
