@@ -35,7 +35,6 @@ class EventBot(commands.Bot):
     def __init__(self):
         super().__init__(help_command=HelpCommand(), command_prefix=commands.when_mentioned_or('e!'))
         self.uptime = None
-        self.load_extension('cogs.admin')
         self.load_extension('cogs.virus')
 
     def run(self):
