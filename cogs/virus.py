@@ -20,7 +20,7 @@ SNAKE_PIT_ID = 596187613497393195
 TESTING_ID = 650539785706012682
 EVENT_ID = 692079241638182973
 INFECTED_ROLE_ID = 692064182753034291
-HEALER_ROLE_ID = 674838998736437248
+HEALER_ROLE_ID = 692082589011542067
 DISCORD_PY = 596183975953825792
 MOD_TESTING_ID = 619267084798656512
 MAX_ALLOWED_HEALS = 3
@@ -470,7 +470,7 @@ class Virus(commands.Cog):
 
         infected_ret = set()
         healers_ret = set()
-        for channel_id in (GENERAL_ID, SNAKE_PIT_ID):
+        for channel_id in (GENERAL_ID):
             channel = guild.get_channel(channel_id)
             authors = {
                 m.author
