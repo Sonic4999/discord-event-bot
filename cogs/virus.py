@@ -464,13 +464,13 @@ class Virus(commands.Cog):
         """Manages the virus"""
         pass
 
-    async def new_virus_day(self, guild, infected=None, healers=None, new_infected=4, new_healers=1):
+    async def new_virus_day(self, guild, infected=None, healers=None, new_infected=4, new_healers=2):
         infected = infected or set()
         healers = healers or set()
 
         infected_ret = set()
         healers_ret = set()
-        for channel_id in (GENERAL_ID, SNAKE_PIT_ID, TESTING_ID):
+        for channel_id in (GENERAL_ID, SNAKE_PIT_ID):
             channel = guild.get_channel(channel_id)
             authors = {
                 m.author
