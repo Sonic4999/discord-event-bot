@@ -15,14 +15,14 @@ import enum
 
 from .utils import storage, formats
 
-GENERAL_ID = 336642776609456130
-SNAKE_PIT_ID = 448285120634421278
-TESTING_ID = 381963689470984203
-EVENT_ID = 674833398744743936
-INFECTED_ROLE_ID = 674811235190964235
+GENERAL_ID = 596183975953825794
+SNAKE_PIT_ID = 596187613497393195
+TESTING_ID = 650539785706012682
+EVENT_ID = 692079241638182973
+INFECTED_ROLE_ID = 692064182753034291
 HEALER_ROLE_ID = 674838998736437248
-DISCORD_PY = 336642139381301249
-MOD_TESTING_ID = 568662293190148106
+DISCORD_PY = 596183975953825792
+MOD_TESTING_ID = 619267084798656512
 MAX_ALLOWED_HEALS = 3
 MAX_VACCINE = 25
 VACCINE_MILESTONES = (5, 10, 15, 20, MAX_VACCINE)
@@ -228,7 +228,7 @@ class Participant:
 
     def heal(self, other):
         if self.is_dead():
-            raise VirusError('<:rooThink:596576798351949847>')
+            raise VirusError(u"\U0001F914")
 
         if other.is_dead():
             raise VirusError("I'm afraid they're already dead.")
@@ -669,7 +669,7 @@ class Virus(commands.Cog):
             return
 
         dialogue = [
-            f'A moment silence for {ping} <:rooBless:597589960270544916> (by the way, {total} dead so far)',
+            f'A moment silence for {ping} 🤔 (by the way, {total} dead so far)',
             f"Some people die, some people live, others just disappear altogether. One thing is certain: {ping} isn't alive. Oh also, {total} dead so far.",
             f"Got a letter saying that {ping} isn't with us anymore. Can you believe we have {total} dead to this thing?",
             f"Uh.. {ping} died? I don't even know who {ping} is lol. Well anyway that's {total} dead.",
@@ -695,7 +695,7 @@ class Virus(commands.Cog):
             f'{ping} is officially infected. Feel free to stay away from them and {total-1} more.',
             f"Ya know, shaming someone for being sick isn't very nice. Protect {ping} and their {total-1} friends.",
             f"Unfortunately {ping} has fallen ill. Get well soon. Oh and {total} infected so far.",
-            f'"from:{ping} infected" might bring up some interesting results <:rooThink:596576798351949847> ({total} infected)',
+            f'"from:{ping} infected" might bring up some interesting results 🤔 ({total} infected)',
         ]
 
         try:
@@ -831,7 +831,7 @@ class Virus(commands.Cog):
         if item is None:
             dialogue = [
                 "It's {current_year} and we still don't know how to use emoji lol",
-                "Hmm.. what are you buying? <:rooThink:596576798351949847>",
+                "Hmm.. what are you buying? 🤔",
                 "You look around the room. Countless people staring at your mistake. You leave in silence.",
             ]
             return await ctx.send(random.choice(dialogue))
@@ -1022,9 +1022,9 @@ class Virus(commands.Cog):
             uses = user.backpack[emoji]
         except KeyError:
             dialogue = [
-                "Buddy ya think this item exists or you have it? <:notlikeblob:597590860623773696>",
-                "I don't know where you've heard of such items <:whenyahomiesaysomewildshit:596577153135673344>",
-                "They told me this item doesn't exist bro. Run along now <:blobsweats:596577181518266378>",
+                "Buddy ya think this item exists or you have it?",
+                "I don't know where you've heard of such items.",
+                "They told me this item doesn't exist bro. Run along now.",
                 f"Yeah right, as if {discord.utils.escape_mentions(emoji)} isn't a figment of your imagination"
             ]
             return await ctx.send(random.choice(dialogue))
@@ -1195,7 +1195,7 @@ class Virus(commands.Cog):
         """Hugs a member."""
 
         if ctx.author.id == member.id or member.id == ctx.me.id:
-            return await ctx.send('<:rooThink:596576798351949847>')
+            return await ctx.send('🤔')
 
         user = await self.get_participant(ctx.author.id)
         other = await self.get_participant(member.id)
@@ -1232,7 +1232,7 @@ class Virus(commands.Cog):
             (2, "Aw isn't that cute. You hugged someone!"),
             (4, "Alright alright you got your hug now scram"),
             (1, "*shudders*"),
-            (3, "<:pepoS:596577130893279272>"),
+            (3, "😬"),
         ]
         await ctx.send(weighted_random(dialogue))
 

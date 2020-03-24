@@ -5,6 +5,8 @@ import datetime
 import sys
 import discord
 import traceback
+# custom
+import os
 
 from cogs.utils import context
 
@@ -38,7 +40,7 @@ class EventBot(commands.Bot):
         self.load_extension('cogs.virus')
 
     def run(self):
-        super().run(config.token)
+        super().run(os.environ.get("MAIN_TOKEN"))
 
     async def on_ready(self):
         if self.uptime is None:
